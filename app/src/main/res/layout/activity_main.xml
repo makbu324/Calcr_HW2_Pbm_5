@@ -5,38 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:gravity="center">
+    tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/n_1"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:inputType="number"
-        android:autoSizeTextType="uniform"
-        android:digits="1234567890."
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    <EditText
-        android:id="@+id/n_2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:inputType="number"
-        android:autoSizeTextType="uniform"
-        android:digits="1234567890."
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <TextView
+            android:text="Feel free to +, -, *, /"
+            android:textColor="#FFFFFF"
+            android:autoSizeTextType="uniform"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"/>
+    </androidx.appcompat.widget.Toolbar>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#000000"
-        android:layout_marginTop="10dp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            >
+            <EditText
+                android:id="@+id/n_1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:autoSizeTextType="uniform"
+                android:digits="1234567890." />
+            <EditText
+                android:id="@+id/n_2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:autoSizeTextType="uniform"
+                android:digits="1234567890." />
 
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:inputType="number"
-        android:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#000000"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/result"
+                android:text="0.0"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
