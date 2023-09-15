@@ -26,13 +26,14 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:orientation="vertical"
+            android:gravity="center"
             >
             <EditText
                 android:id="@+id/n_1"
@@ -57,12 +58,68 @@
 
             <TextView
                 android:id="@+id/result"
-                android:text="0.0"
+                android:text="0"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:inputType="number"
                 android:autoSizeTextType="uniform"
                 app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="30dp">
+
+            >
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/add_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_label"/>
+                    <RadioButton
+                        android:id="@+id/sub_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sub_label"/>
+                    <RadioButton
+                        android:id="@+id/mult_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mult_label"/>
+                    <RadioButton
+                        android:id="@+id/div_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/div_label"/>
+                    <RadioButton
+                        android:id="@+id/mod_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mod_label"/>
+">
+                </RadioGroup>
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/button_enter"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:text="@string/enter_button"></Button>
+
+
+
+
+
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

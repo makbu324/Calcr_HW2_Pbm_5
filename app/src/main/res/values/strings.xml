@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Calcr_HW2_Pbm_4</string>
+    <string name="add_label">+</string>
+    <string name="div_label">/</string>
+    <string name="sub_label">-</string>
+    <string name="mult_label">*</string>
+    <string name="mod_label">%</string>
+    <string name="enter_button">Calculate!</string>
 </resources>
