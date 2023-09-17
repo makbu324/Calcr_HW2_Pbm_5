@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Button
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     private lateinit var button_add: Button
@@ -32,6 +33,53 @@ class MainActivity : AppCompatActivity() {
         var resultNum = 0.0
         var mode = "None"
 
+
+        fun complain(s: String): Boolean {
+            Toast.makeText(
+                this,
+                s,
+                Toast.LENGTH_SHORT
+            ).show()
+            result.setText("ERROR")
+            return false
+        }
+        fun check(): Boolean {
+            var good = false
+            var n1string = n_1.text.toString()
+            var n2string = n_2.text.toString()
+
+            var i = 0
+            for (c in n1string){
+                if (c.equals('.')) i += 1
+            }
+
+            var j = 0
+            for (c in n2string){
+                if (c.equals('.')) j += 1
+            }
+
+            if (n1string.isEmpty() || n1string.isEmpty()) {
+                complain("Please enter two values")
+            }
+
+            else if (i > 1 || n1string[0].equals('.') || n1string[n1string.length-1].equals('.') ) {
+                complain("Please make a proper decimal")
+            }
+            else if (j > 1 || n2string[0].equals('.') || n2string[n2string.length-1].equals('.') ) {
+                complain("Please make a proper decimal")
+            }
+            else if ((n2string.toInt() == 0) && (mode == "Div")) {
+                complain("Cannot divide by 0")
+            }
+            else {
+                good = true
+            }
+
+            return good
+
+
+
+        }
         fun calculate() {
             var number1 = n_1.getText().toString().toDouble()
             var number2 = n_2.getText().toString().toDouble()
@@ -42,10 +90,14 @@ class MainActivity : AppCompatActivity() {
                 "Div" -> resultNum = number1 / number2
                 "Mod" -> resultNum = number1 % number2
             }
-            if (resultNum % 1 == 0.0)
-                result.setText(resultNum.toInt().toString())
-            else
-                result.setText(resultNum.toString())
+            if (resultNum > 99999999) result.setText("MAX")
+            else if (resultNum < -9999999) result.setText("MIN")
+            else if (resultNum % 1 == 0.0) result.setText(resultNum.toInt().toString())
+            else result.setText(resultNum.toString())
+
+
+
+
 
         }
 
@@ -65,7 +117,8 @@ class MainActivity : AppCompatActivity() {
             mode = "Mod"
         }
         button_enter.setOnClickListener{
-            calculate()
+            var valid = check()
+            if (valid) calculate()
         }
 
     }
